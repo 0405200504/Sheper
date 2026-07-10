@@ -199,84 +199,102 @@ const FOUNDERS = [
   },
 ];
 
-/* ---------- Carrossel de fundadores ---------- */
-function initFoundersCarousel() {
-  const track = document.getElementById("fc-track");
-  const dotsWrap = document.getElementById("fc-dots");
-  const counter = document.getElementById("fc-counter");
-  const prevBtn = document.getElementById("fc-prev");
-  const nextBtn = document.getElementById("fc-next");
-  if (!track || !dotsWrap || !counter) return;
+/* ---------- Esteira de fundadores (marquee com arraste) ---------- */
+function initFoundersMarquee() {
+  const viewport = document.getElementById("fm-viewport");
+  const track = document.getElementById("fm-track");
+  if (!viewport || !track) return;
 
   const pad = (n) => String(n).padStart(2, "0");
-  const total = FOUNDERS.length;
 
-  FOUNDERS.forEach((f, i) => {
-    const slide = document.createElement("article");
-    slide.className = "fc-slide";
-    slide.setAttribute("aria-label", `${pad(i + 1)} de ${pad(total)} — ${f.name}`);
-    slide.innerHTML = `
-      <div class="fc-photo">
-        <span class="fc-photo-index">${pad(i + 1)}</span>
-        <div class="fc-placeholder" aria-hidden="true">
-          <img src="img/logo/simbolo-negativo.png" alt="" loading="lazy" />
+  const buildCard = (f, i) => {
+    const card = document.createElement("article");
+    card.className = "fm-card";
+    card.setAttribute("aria-label", `${f.name} — fundador da Sheper`);
+    card.innerHTML = `
+      <div class="fm-photo">
+        <span class="fm-index">${pad(i + 1)}</span>
+        <div class="fm-placeholder" aria-hidden="true">
+          <img src="img/logo/simbolo-negativo.png" alt="" loading="lazy" draggable="false" />
           <span>FOTO 9:16 · EM BREVE</span>
         </div>
-        <img src="${f.photo}" alt="Retrato de ${f.name}" loading="lazy"
+        <img src="${f.photo}" alt="Retrato de ${f.name}" loading="lazy" draggable="false"
              onerror="this.remove()" />
       </div>
-      <div class="fc-info">
-        <h3 class="fc-name">${f.name}</h3>
-        <span class="fc-handle">${f.handle} · FUNDADOR</span>
-        <span class="fc-handle">${f.stats}</span>
-        <p class="fc-cred">${f.cred}</p>
-        <p class="fc-bio">${f.bio}</p>
-      </div>
+      <h3 class="fm-name">${f.name}</h3>
+      <span class="fm-handle">${f.handle} · ${f.stats}</span>
+      <p class="fm-cred">${f.cred}</p>
+      <p class="fm-bio">${f.bio}</p>
     `;
-    track.appendChild(slide);
+    track.appendChild(card);
+  };
 
-    const dot = document.createElement("button");
-    dot.className = "fc-dot";
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Ir pro fundador ${pad(i + 1)}`);
-    dot.addEventListener("click", () => go(i));
-    dotsWrap.appendChild(dot);
+  // duas cópias da lista pra loop contínuo sem emenda
+  FOUNDERS.forEach(buildCard);
+  FOUNDERS.forEach((f, i) => {
+    buildCard(f, i);
+    track.lastElementChild.setAttribute("aria-hidden", "true");
   });
 
-  const dots = Array.from(dotsWrap.children);
-  let index = 0;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const SPEED = 0.6; // px por frame (~36px/s)
 
-  function go(i) {
-    index = (i + total) % total;
-    track.style.transform = `translateX(-${index * 100}%)`;
-    counter.textContent = `${pad(index + 1)} / ${pad(total)}`;
-    dots.forEach((d, j) => d.classList.toggle("active", j === index));
-  }
+  let offset = 0;
+  let half = 0;
+  let dragging = false;
+  let hovering = false;
+  let startX = 0;
+  let startOffset = 0;
 
-  prevBtn?.addEventListener("click", () => go(index - 1));
-  nextBtn?.addEventListener("click", () => go(index + 1));
+  const measure = () => {
+    half = track.scrollWidth / 2;
+  };
+  window.addEventListener("resize", measure, { passive: true });
+  window.addEventListener("load", measure);
+  measure();
 
-  /* swipe no mobile */
-  let startX = null;
-  track.addEventListener(
-    "touchstart",
-    (e) => {
-      startX = e.touches[0].clientX;
-    },
-    { passive: true }
-  );
-  track.addEventListener(
-    "touchend",
-    (e) => {
-      if (startX === null) return;
-      const delta = e.changedTouches[0].clientX - startX;
-      if (Math.abs(delta) > 48) go(delta < 0 ? index + 1 : index - 1);
-      startX = null;
-    },
-    { passive: true }
-  );
+  const wrap = () => {
+    if (half > 0) offset = ((offset % half) + half) % half;
+  };
 
-  go(0);
+  const render = () => {
+    track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+  };
+
+  const step = () => {
+    if (!dragging && !hovering && !reduceMotion) {
+      offset += SPEED;
+      wrap();
+      render();
+    }
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+
+  /* arraste: mouse e touch via pointer events */
+  viewport.addEventListener("pointerdown", (e) => {
+    dragging = true;
+    startX = e.clientX;
+    startOffset = offset;
+    viewport.classList.add("dragging");
+    viewport.setPointerCapture(e.pointerId);
+  });
+  viewport.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    offset = startOffset - (e.clientX - startX);
+    wrap();
+    render();
+  });
+  const release = () => {
+    dragging = false;
+    viewport.classList.remove("dragging");
+  };
+  viewport.addEventListener("pointerup", release);
+  viewport.addEventListener("pointercancel", release);
+
+  /* pausa quando o mouse está em cima (pra ler o perfil) */
+  viewport.addEventListener("mouseenter", () => (hovering = true));
+  viewport.addEventListener("mouseleave", () => (hovering = false));
 }
 
 /* ---------- Reveal on scroll ---------- */
@@ -315,6 +333,6 @@ function initSmoothScroll() {
 }
 
 buildFaq();
-initFoundersCarousel();
+initFoundersMarquee();
 initReveals();
 initSmoothScroll();
