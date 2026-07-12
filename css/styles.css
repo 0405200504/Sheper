@@ -169,11 +169,23 @@ h2 em,
 h3 em,
 .title-xl em,
 .title-lg em {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.015em;
-  text-transform: none;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+/* destaque das headlines: Anton itálica vazada (outline) */
+@supports (-webkit-text-stroke: 1px black) {
+  h1 em,
+  h2 em,
+  h3 em,
+  .title-xl em,
+  .title-lg em {
+    -webkit-text-stroke: 0.028em currentColor;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .title-xl {
@@ -452,11 +464,19 @@ h3 em,
 }
 
 .hero-title em {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
+  font-style: italic;
   font-weight: 400;
-  font-size: 0.98em;
+  font-size: 1em;
   color: var(--ink);
-  text-transform: none;
+  text-transform: uppercase;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+  .hero-title em {
+    -webkit-text-stroke: 0.028em currentColor;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .hero-sub {
@@ -2126,88 +2146,427 @@ h3 em,
 }
 
 /* ==========================================================================
-   MOBILE CLEANUP — menos texto, mais respiro
+   MOBILE PREMIUM — menos texto, textura, glass cards, carrosséis e movimento
+   Referência visual: humanacademy.ai (liquid glass, blobs, cta-breathe)
    ========================================================================== */
+
+@keyframes liquid-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(26px, -18px) scale(1.05);
+  }
+  50% {
+    transform: translate(-18px, 14px) scale(0.95);
+  }
+  75% {
+    transform: translate(12px, 22px) scale(1.02);
+  }
+}
+
+@keyframes cta-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes btn-shine {
+  0%,
+  55% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(340%) skewX(-18deg);
+  }
+}
+
 @media (max-width: 768px) {
 
-  /* ---------- Geral: reduz padding entre seções ---------- */
+  /* ---------- Tokens mobile: menos padding, raio maior (cards mais "soft") ---------- */
   :root {
     --pad-section: clamp(56px, 9vw, 96px);
+    --radius-lg: 18px;
   }
 
-  /* ---------- Prosa/parágrafos secundários: sumir ---------- */
+  /* ---------- Textura de fundo: dot grid + blob flutuante por seção ---------- */
+  .section {
+    position: relative;
+    overflow: hidden;
+    background-image: radial-gradient(circle, rgba(20, 20, 22, 0.07) 1px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
 
-  /* Seção "O Diagnóstico" — esconde a lista de dores e a frase final */
+  .section > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: -60px;
+    right: -80px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 20, 22, 0.055), transparent 65%);
+    animation: liquid-float 14s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .section-black {
+    background-color: var(--black);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+
+  .section-black::before {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.07), transparent 65%);
+  }
+
+  .section-fade-inner {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+
+  /* ---------- Hero: wash suave + segundo blob ---------- */
+  .hero {
+    background-image:
+      radial-gradient(circle, rgba(20, 20, 22, 0.07) 1px, transparent 1.4px),
+      radial-gradient(130% 55% at 50% -10%, var(--off) 0%, transparent 60%);
+    background-size: 22px 22px, 100% 100%;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 140px;
+    left: -90px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 20, 22, 0.06), transparent 65%);
+    animation: liquid-float 18s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+
+  .eyebrow-hero {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    padding: 9px 16px;
+    font-size: 9.5px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 10.5vw, 3.2rem);
+  }
+
+  .hero-micro {
+    display: none;
+  }
+
+  .hero-sub {
+    margin-top: 18px;
+    margin-bottom: 28px;
+  }
+
+  /* ---------- Cabeçalho de seção vira chip gráfico ---------- */
+  .sec-head {
+    border-top: 0;
+    padding-top: 0;
+    align-items: center;
+    margin-bottom: clamp(28px, 7vw, 44px);
+  }
+
+  .sec-head span:first-child {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 9px;
+  }
+
+  .sec-head span:last-child {
+    font-size: 9px;
+  }
+
+  .sec-head-dark span:first-child {
+    background: var(--white);
+    color: var(--black);
+  }
+
+  /* ---------- Headlines Anton: maiores e mais justas no mobile ---------- */
+  .title-xl {
+    font-size: clamp(2.1rem, 8.6vw, 2.9rem);
+  }
+
+  .title-lg {
+    font-size: clamp(1.8rem, 7.4vw, 2.4rem);
+  }
+
+  /* ---------- Carrosséis com swipe (estudos + depoimentos) ---------- */
+  .study-grid,
+  .dm-grid {
+    display: flex;
+    max-width: none;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 6px var(--gutter) 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .study-grid::-webkit-scrollbar,
+  .dm-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .study-card,
+  .dm-card {
+    flex: 0 0 min(82vw, 340px);
+    scroll-snap-align: center;
+  }
+
+  /* ---------- Cards claros: sombra suave (sai do "papel chapado") ---------- */
+  .study-card,
+  .dm-card,
+  .module-card,
+  .community-card,
+  .diag-row {
+    box-shadow: 0 16px 36px -26px rgba(10, 10, 11, 0.35);
+  }
+
+  /* ---------- Cards escuros: liquid glass (brilho interno + sombra funda) ---------- */
+  .study-card-dark,
+  .module-dark,
+  .community-card-dark,
+  .price-card,
+  .founders-stats .fstat {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      inset 0 1px rgba(255, 255, 255, 0.18),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 24px 50px -20px rgba(0, 0, 0, 0.55);
+  }
+
+  /* ---------- Diagnóstico: linhas viram mini-cards ---------- */
+  .diag {
+    border-top: 0;
+    display: grid;
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  .diag-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    font-size: 1.2rem;
+  }
+
+  .diag-neg {
+    font-size: 0.95rem;
+  }
+
+  .diag-pos::before {
+    content: "→ ";
+    color: var(--gray);
+  }
+
+  /* ---------- Benefícios: tabela vira card único com linhas enxutas ---------- */
+  .benefit-table {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    overflow: hidden;
+    box-shadow: 0 16px 36px -26px rgba(10, 10, 11, 0.35);
+  }
+
+  .benefit-row {
+    grid-template-columns: 34px 1fr 14px;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 18px;
+  }
+
+  .benefit-row:last-child {
+    border-bottom: 0;
+  }
+
+  .benefit-row::after {
+    content: "→";
+    color: var(--gray);
+    font-size: 13px;
+  }
+
+  .benefit-num {
+    font-size: 0.95rem;
+  }
+
+  .benefit-row h3 {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- Curso: módulos em grade 2×2 compacta ---------- */
+  .qa-list {
+    margin-bottom: 56px;
+  }
+
+  .qa-row {
+    padding: 16px 0;
+  }
+
+  .course-cover {
+    margin-inline: auto;
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .module-card {
+    padding: 16px 14px;
+  }
+
+  .module-card header {
+    margin-bottom: 10px;
+  }
+
+  .module-card h4 {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0;
+  }
+
+  .module-lessons {
+    padding: 4px 9px;
+    font-size: 8.5px;
+  }
+
+  /* ---------- Comunidade: grade 2×2 compacta ---------- */
+  .community-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .community-card {
+    padding: 18px 16px;
+  }
+
+  .community-num {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .community-card h3 {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- Fundadores: stats em grade de cards glass ---------- */
+  .founders-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    border: 0;
+    margin-top: 48px;
+  }
+
+  .founders-stats .fstat {
+    border-radius: var(--radius-lg);
+    background: linear-gradient(160deg, #1b1b20 0%, #101013 70%);
+    padding: 20px 16px;
+  }
+
+  /* ---------- Preço ---------- */
+  .price-card {
+    border-radius: 20px;
+  }
+
+  .price-list li {
+    padding: 9px 0;
+    font-size: 0.88rem;
+  }
+
+  /* ---------- CTAs: respiração + varredura de brilho ---------- */
+  .hero-cta .btn-dark,
+  .cta-row .btn,
+  .price-card .btn {
+    animation: cta-breathe 5s ease-in-out infinite;
+  }
+
+  .btn-dark,
+  .btn-light,
+  .btn-solid {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-dark::before,
+  .btn-light::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+    animation: btn-shine 3.6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .btn-light::before {
+    background: linear-gradient(105deg, transparent, rgba(10, 10, 11, 0.1), transparent);
+  }
+
+  /* ---------- Ritmo: margens de citações mais curtas ---------- */
+  .turn-quote {
+    margin: 44px auto;
+  }
+
+  .impact-quote {
+    margin-top: 44px;
+  }
+
+  .fade-strip {
+    height: clamp(110px, 18vw, 160px);
+  }
+
+  /* ---------- Menos texto: parágrafos secundários fora do mobile ---------- */
   .pain-list,
   .list-label,
   .diff-line,
-  .closing-line {
-    display: none;
-  }
-
-  /* Seção "O Posicionamento" — esconde o prose longo, deixa só headline + quote */
-  #virada .prose {
-    display: none;
-  }
-
-  /* Seção "A Ferramenta" — esconde o 3º parágrafo (excesso) */
-  .tools-layout .prose p:nth-child(3) {
-    display: none;
-  }
-
-  /* Seção "O que você recebe" — esconde as descrições dos benefícios, deixa só o título */
-  .benefit-row p {
-    display: none;
-  }
-
-  /* Seção curso — esconde módulos e parágrafo final longo */
-  .course-position {
-    display: none;
-  }
-
-  .module-card p {
-    display: none;
-  }
-
-  /* Seção "Uma Assinatura" — esconde prose longo */
-  #assinatura .prose {
-    display: none;
-  }
-
-  /* Seção fundadores — esconde a intro longa */
-  .founders-intro {
-    display: none;
-  }
-
-  /* Seção "A Comunidade" — esconde intro e descrições dos cards */
-  .community-intro {
-    display: none;
-  }
-
-  .community-card p {
-    display: none;
-  }
-
-  /* Seção "O Investimento" — esconde o prose com os 3 parágrafos */
-  .pricing-copy .prose {
-    display: none;
-  }
-
-  /* Seção final — esconde o segundo parágrafo do prose */
-  .section-final .prose p:nth-child(2) {
-    display: none;
-  }
-
-  /* DM cards — esconde a segunda bubble (mais longa) */
-  .dm-bubble:nth-child(3) {
-    display: none;
-  }
-
-  /* Study cards — esconde o parágrafo de contexto, mantém headline + punch */
-  .study-card > p:first-of-type {
-    display: none;
-  }
-
+  .closing-line,
+  #virada .prose,
+  .tools-layout .prose p:nth-child(3),
+  .benefit-row p,
+  .course-position,
+  .module-card p,
+  #assinatura .prose,
+  .founders-intro,
+  .community-intro,
+  .community-card p,
+  .pricing-copy .prose,
+  .section-final .prose p:nth-child(2),
+  .dm-bubble:nth-child(3),
+  .study-card > p:first-of-type,
   .study-source {
     display: none;
   }
@@ -2222,16 +2581,29 @@ h3 em,
     margin-top: 0.7em;
   }
 
-  /* FM bio mais compacta */
   .fm-bio {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+}
 
-  /* benefit-row mais apertado sem o p */
-  .benefit-row {
-    padding-block: 16px;
+/* movimento desligado quando o usuário pede menos animação */
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  .section::before,
+  .hero::after {
+    animation: none;
+  }
+
+  .hero-cta .btn-dark,
+  .cta-row .btn,
+  .price-card .btn {
+    animation: none;
+  }
+
+  .btn-dark::before,
+  .btn-light::before {
+    content: none;
   }
 }
