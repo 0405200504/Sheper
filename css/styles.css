@@ -1041,7 +1041,6 @@ h3 em,
 .tools-photo img {
   width: 100%;
   height: auto;
-  filter: grayscale(1) contrast(1.06);
   transition: transform 0.8s ease;
 }
 
