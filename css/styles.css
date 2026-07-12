@@ -21,6 +21,7 @@
 
   --font-sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
+  --font-headline: "Anton", "Impact", sans-serif;
 
   --pad-section: clamp(84px, 11vw, 152px);
   --gutter: clamp(20px, 4.5vw, 56px);
@@ -155,9 +156,12 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 500;
-  line-height: 1.04;
-  letter-spacing: -0.035em;
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 h1 em,
@@ -169,6 +173,7 @@ h3 em,
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.015em;
+  text-transform: none;
 }
 
 .title-xl {
@@ -437,17 +442,21 @@ h3 em,
 }
 
 .hero-title {
+  font-family: var(--font-headline);
   font-size: clamp(2.9rem, 6.6vw, 5.4rem);
-  font-weight: 700;
+  font-weight: 400;
   font-style: italic;
-  letter-spacing: -0.045em;
+  letter-spacing: 0.01em;
   line-height: 0.99;
+  text-transform: uppercase;
 }
 
 .hero-title em {
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: 0.98em;
   color: var(--ink);
+  text-transform: none;
 }
 
 .hero-sub {
@@ -719,7 +728,11 @@ h3 em,
 }
 
 .study-card h3 {
+  font-family: var(--font-sans);
+  font-style: normal;
+  text-transform: none;
   font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.15;
 }
@@ -1061,6 +1074,9 @@ h3 em,
 }
 
 .benefit-row h3 {
+  font-family: var(--font-sans);
+  font-style: normal;
+  text-transform: uppercase;
   font-size: clamp(1rem, 1.4vw, 1.15rem);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -1273,6 +1289,9 @@ h3 em,
 }
 
 .module-card h4 {
+  font-family: var(--font-sans);
+  font-style: normal;
+  text-transform: uppercase;
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -1445,6 +1464,9 @@ h3 em,
 }
 
 .fm-name {
+  font-family: var(--font-sans);
+  font-style: normal;
+  text-transform: none;
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: -0.03em;
@@ -1686,6 +1708,9 @@ h3 em,
 }
 
 .community-card h3 {
+  font-family: var(--font-sans);
+  font-style: normal;
+  text-transform: uppercase;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -2097,5 +2122,116 @@ h3 em,
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE CLEANUP — menos texto, mais respiro
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* ---------- Geral: reduz padding entre seções ---------- */
+  :root {
+    --pad-section: clamp(56px, 9vw, 96px);
+  }
+
+  /* ---------- Prosa/parágrafos secundários: sumir ---------- */
+
+  /* Seção "O Diagnóstico" — esconde a lista de dores e a frase final */
+  .pain-list,
+  .list-label,
+  .diff-line,
+  .closing-line {
+    display: none;
+  }
+
+  /* Seção "O Posicionamento" — esconde o prose longo, deixa só headline + quote */
+  #virada .prose {
+    display: none;
+  }
+
+  /* Seção "A Ferramenta" — esconde o 3º parágrafo (excesso) */
+  .tools-layout .prose p:nth-child(3) {
+    display: none;
+  }
+
+  /* Seção "O que você recebe" — esconde as descrições dos benefícios, deixa só o título */
+  .benefit-row p {
+    display: none;
+  }
+
+  /* Seção curso — esconde módulos e parágrafo final longo */
+  .course-position {
+    display: none;
+  }
+
+  .module-card p {
+    display: none;
+  }
+
+  /* Seção "Uma Assinatura" — esconde prose longo */
+  #assinatura .prose {
+    display: none;
+  }
+
+  /* Seção fundadores — esconde a intro longa */
+  .founders-intro {
+    display: none;
+  }
+
+  /* Seção "A Comunidade" — esconde intro e descrições dos cards */
+  .community-intro {
+    display: none;
+  }
+
+  .community-card p {
+    display: none;
+  }
+
+  /* Seção "O Investimento" — esconde o prose com os 3 parágrafos */
+  .pricing-copy .prose {
+    display: none;
+  }
+
+  /* Seção final — esconde o segundo parágrafo do prose */
+  .section-final .prose p:nth-child(2) {
+    display: none;
+  }
+
+  /* DM cards — esconde a segunda bubble (mais longa) */
+  .dm-bubble:nth-child(3) {
+    display: none;
+  }
+
+  /* Study cards — esconde o parágrafo de contexto, mantém headline + punch */
+  .study-card > p:first-of-type {
+    display: none;
+  }
+
+  .study-source {
+    display: none;
+  }
+
+  /* ---------- Tipografia mobile mais compacta ---------- */
+  .prose {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .prose p + p {
+    margin-top: 0.7em;
+  }
+
+  /* FM bio mais compacta */
+  .fm-bio {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* benefit-row mais apertado sem o p */
+  .benefit-row {
+    padding-block: 16px;
   }
 }
