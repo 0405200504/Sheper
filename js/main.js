@@ -91,7 +91,7 @@ const FOUNDERS = [
     stats: "INSTAGRAM 425K · TIKTOK 180K",
     cred: "Criador de conteúdo de moda que vive de viralizar.",
     bio: "Juck faz conteúdo de moda há uns 5 anos e domina o jogo como poucos. Sabe montar vídeo que prende, viraliza forte e tem um alcance que a maioria não chega perto. A régua é alta: vídeos passando de 6 milhões de views e parcerias com marcas muito grandes. Não é sorte, é frequência e mão pra criar conteúdo que performa.",
-    photo: "img/fundadores/01-juck.jpg",
+    photo: "fundadores/juckfe.jpg",
   },
   {
     name: "Asaf",
@@ -99,7 +99,7 @@ const FOUNDERS = [
     stats: "TIKTOK 215K · INSTAGRAM 180K",
     cred: "Criador de conteúdo de moda que une estilo e inteligência artificial.",
     bio: "Asaf é carioca, monta outfits afiados e cria conteúdo de moda há um bom tempo, o que já lhe rendeu relevância no meio. A foto sempre foi a força dele. Hoje puxa a frente ensinando a galera a melhorar as fotos com IA, mostrando prompt e técnica na prática. É o cara que manja de inteligência artificial e coloca isso a serviço da moda.",
-    photo: "img/fundadores/02-asaf.jpg",
+    photo: "fundadores/asaf.jpg",
   },
   {
     name: "Master",
@@ -107,7 +107,7 @@ const FOUNDERS = [
     stats: "INSTAGRAM 200K · TIKTOK 110K",
     cred: "Criador de conteúdo de moda, games e lifestyle.",
     bio: "Master ganhou o mundo no Fortnite, foi um dos melhores do planeta no começo do jogo. Depois virou a chave pra moda: hoje posta fit atrás de fit, monta looks afiados e carrega um lifestyle que chama atenção. O trunfo é a ponte entre os dois mundos. Trouxe a comunidade gigante do game junto e usa isso pra puxar essa galera pra cima: academia, estilo, festa e viagem. Prova viva de que dá pra sair da frente da tela e construir uma vida foda.",
-    photo: "img/fundadores/03-master.jpg",
+    photo: "fundadores/master.jpg",
   },
   {
     name: "Evertom Pombo",
@@ -115,7 +115,7 @@ const FOUNDERS = [
     stats: "TIKTOK 170K · INSTAGRAM 39K",
     cred: "Sneakerhead e criador de conteúdo.",
     bio: "Evertom Pombo é o cara dos tênis. Faz conteúdo de moda com a veia voltada pros sneakers: explica, destrincha e mostra tudo sobre calçado como poucos. Já tem nome firmado e relevância no nicho. Quando o assunto é sneaker, ele é referência.",
-    photo: "img/fundadores/04-evertom-pombo.jpg",
+    photo: "fundadores/everton.jpg",
   },
   {
     name: "Juan Pablo",
@@ -123,7 +123,7 @@ const FOUNDERS = [
     stats: "INSTAGRAM 150K · TIKTOK 60K",
     cred: "Fundador da Tears e especialista em branding.",
     bio: "Juan vive de internet há mais de 12 anos. É dono da Tears, marca de streetwear. Sua praia é branding e criação de marca do zero, é aí que ele é referência. Nesse tempo virou nome construindo marca, comunidade e estratégia que vira venda de verdade, não métrica de vaidade.",
-    photo: "img/fundadores/05-juan-pablo.jpg",
+    photo: "fundadores/juan pablo.jpg",
   },
   {
     name: "Nathan Cabral",
@@ -131,7 +131,7 @@ const FOUNDERS = [
     stats: "INSTAGRAM 100K · TIKTOK 48K",
     cred: "Criador de conteúdo de moda e lifestyle.",
     bio: "Nathan Cabral tem 17 anos e faz conteúdo de moda há uns 2, mas já passou de 100 mil seguidores em pouco tempo. Crescimento rápido e conteúdo que vai além da roupa: fala de desenvolvimento pessoal e mostra o próprio lifestyle. Evolução, academia e religião são a base da marca dele, e é isso que conecta. Já rodou parceria com marca internacional e nomes grandes do nacional.",
-    photo: "img/fundadores/06-nathan-cabral.jpg",
+    photo: "fundadores/nathan cabral.jpg",
   },
   {
     name: "Gabriel Satiro",
@@ -139,7 +139,7 @@ const FOUNDERS = [
     stats: "TIKTOK 100K · INSTAGRAM 40K",
     cred: "Fundador de duas marcas de roupa e criador de conteúdo de moda.",
     bio: "Gabriel Satiro vive de moda há uns 6 anos e toca duas marcas próprias de roupa (anny & tears). Foi um dos primeiros no Brasil a ensinar a galera a se vestir de verdade, e ajudou a abrir esse caminho pro streetwear por aqui. Fez nome unindo conteúdo e as próprias marcas, e já rodou colab com nomes grandes, inclusive gringos.",
-    photo: "img/fundadores/07-gabriel-satiro.jpg",
+    photo: "fundadores/satiro.jpg",
   },
   {
     name: "Thalys Ronald",
@@ -147,7 +147,7 @@ const FOUNDERS = [
     stats: "TIKTOK 85K · INSTAGRAM 78K",
     cred: "Criador de conteúdo de moda e dono de marca de acessórios.",
     bio: "Thalys Ronald faz conteúdo de moda e construiu uma comunidade fiel em cima disso. O trunfo dele é ser espontâneo: o jeito de falar cria uma conexão real com quem assiste, não é conteúdo engessado. Além do conteúdo, toca a própria marca de acessórios (your.pricee), provando que sabe transformar audiência em marca de verdade.",
-    photo: "img/fundadores/08-thalys-ronald.jpg",
+    photo: "fundadores/thalys.jpg",
   },
   {
     name: "Vitin Resende",
@@ -155,7 +155,7 @@ const FOUNDERS = [
     stats: "TIKTOK 70K · INSTAGRAM 50K",
     cred: "Criador de conteúdo de moda com pegada estética internacional.",
     bio: "Vitin Resende se destaca pela foto. Monta outfit afiado, sabe casar calçado no look e entrega uma estética que parece feita fora do Brasil, nível gringo de verdade. Teve uma ascensão rápida e carrega um engajamento muito alto pro tamanho da audiência, sinal de que o público não só segue, curte de verdade.",
-    photo: "img/fundadores/09-vitin-resende.jpg",
+    photo: "fundadores/vitin.jpg",
   },
   {
     name: "Davi Belo",
@@ -163,7 +163,7 @@ const FOUNDERS = [
     stats: "TIKTOK 70K · INSTAGRAM 30K",
     cred: "Criador de conteúdo de moda e YouTuber.",
     bio: "Davi Belo saiu de uma cidade pequena de Minas Gerais e construiu nome no conteúdo de moda. Posta com frequência alta, mantém uma média de views forte e faz vídeo que realmente ajuda a rapaziada a evoluir no estilo. No YouTube, os vlogs e a forma como trata o público renderam uma comunidade fiel e engajada. Constância e proximidade são a marca dele.",
-    photo: "img/fundadores/10-davi-belo.jpg",
+    photo: "fundadores/davi.jpg",
   },
   {
     name: "Petry",
@@ -171,7 +171,7 @@ const FOUNDERS = [
     stats: "TIKTOK 60K · INSTAGRAM 5K",
     cred: "Criador de conteúdo de moda que transita por todos os estilos.",
     bio: "Petry faz conteúdo ensinando a se vestir e mostrando como importar produto da China na prática. O trunfo é o carisma e a espontaneidade na frente da câmera, o jeito de falar segura o público. Monta outfit fora da casinha e passeia entre os estilos com facilidade, do streetwear ao casual. Não fica preso a uma só pegada, e é aí que se destaca.",
-    photo: "img/fundadores/11-petry.jpg",
+    photo: "fundadores/petry.jpg",
   },
   {
     name: "Germano",
@@ -179,7 +179,7 @@ const FOUNDERS = [
     stats: "TIKTOK 50K · INSTAGRAM 15K",
     cred: "Modelo e criador de conteúdo de moda.",
     bio: "Germano é modelo antes de tudo. Proporção de corpo, estética forte e os dreads compõem uma presença que salta na frente da câmera, e é isso que o faz brilhar. Roda com marca nacional atrás de marca nacional e leva a mesma pegada estética pro conteúdo que produz. Moda no corpo e no feed.",
-    photo: "img/fundadores/12-germano.jpg",
+    photo: "fundadores/germano.jpg",
   },
   {
     name: "Bruno Gomes",
@@ -187,7 +187,7 @@ const FOUNDERS = [
     stats: "INSTAGRAM 45K · TIKTOK 12K",
     cred: "Criador de conteúdo de moda e embaixador da Umbro.",
     bio: "Bruno Gomes faz conteúdo ensinando a rapaziada a se vestir melhor. Direto no ponto: mostra na prática como montar look e acertar no estilo. Fez nome pelas parcerias com marcas grandes e hoje é embaixador da Umbro, unindo estilo e a pegada do futebol.",
-    photo: "img/fundadores/13-bruno-gomes.jpg",
+    photo: "fundadores/bruno gomes.jpg",
   },
   {
     name: "Dudu Ianoski",
@@ -195,7 +195,7 @@ const FOUNDERS = [
     stats: "INSTAGRAM 10K · TIKTOK 5K",
     cred: "Criador de conteúdo de moda com pegada viral.",
     bio: "Ianoski se destaca pelo conteúdo viral. Tem sacada afiada nos vídeos, mistura humor e moda de um jeito que estoura a bolha e prende quem assiste. É criador recente, começou agora, mas a ascensão já veio rápida. A comunicação cômica e leve é a marca dele, e o que faz o vídeo rodar.",
-    photo: "img/fundadores/14-dudu-ianoski.jpg",
+    photo: "fundadores/dudu-ianoski.jpg",
   },
 ];
 
@@ -297,6 +297,62 @@ function initFoundersMarquee() {
   viewport.addEventListener("mouseleave", () => (hovering = false));
 }
 
+/* ---------- Rebanho do hero ----------
+   Clona o SVG da ovelha negra, troca as cores pra branco e espalha os clones
+   em colunas diagonais dentro de #hero-flock (posições em % do container). */
+function initHeroFlock() {
+  const flock = document.getElementById("hero-flock");
+  const proto = document.querySelector(".hero-blacksheep .sheep");
+  if (!flock || !proto) return;
+
+  const SPOTS = [
+    { x: 62, y: -3 }, { x: 38, y: 3 }, { x: 16, y: 0 },
+    { x: 72, y: 13 }, { x: 49, y: 18 }, { x: 26, y: 15 }, { x: 3, y: 11 },
+    { x: 63, y: 30 }, { x: 40, y: 35 }, { x: 15, y: 32 },
+    { x: 73, y: 47 }, { x: 50, y: 52 }, { x: 26, y: 49 }, { x: 2, y: 45 },
+    { x: 64, y: 64 }, { x: 40, y: 69 }, { x: 14, y: 66 },
+    { x: 73, y: 81 }, { x: 48, y: 87 }, { x: 24, y: 84 },
+  ];
+
+  SPOTS.forEach((spot, i) => {
+    const sheep = proto.cloneNode(true);
+    sheep.classList.remove("sheep-black", "sheep-walk");
+    sheep.classList.add("sheep-white");
+    sheep.style.left = spot.x + "%";
+    sheep.style.top = spot.y + "%";
+    sheep.style.zIndex = String(10 + Math.round(spot.y));
+    sheep.style.setProperty("--s", (0.86 + ((i * 3) % 5) * 0.045).toFixed(2));
+    sheep.style.setProperty("--bob-delay", "-" + ((i * 0.53) % 1.6).toFixed(2) + "s");
+    flock.appendChild(sheep);
+  });
+}
+
+/* ---------- Esteira do hero (mobile) ----------
+   Duas fileiras em loop contínuo (fundo e frente). Cada fileira recebe duas
+   cópias idênticas do conjunto pra emenda invisível no translateX(-50%). */
+function initHeroMeadow() {
+  const proto = document.querySelector(".hero-blacksheep .sheep");
+  const rows = [
+    { el: document.getElementById("meadow-back"), count: 9 },
+    { el: document.getElementById("meadow-front"), count: 7 },
+  ];
+  if (!proto || rows.some((r) => !r.el)) return;
+
+  rows.forEach((row) => {
+    for (let half = 0; half < 2; half++) {
+      for (let i = 0; i < row.count; i++) {
+        const sheep = proto.cloneNode(true);
+        sheep.classList.remove("sheep-black");
+        sheep.classList.add("sheep-white", "sheep-walk");
+        sheep.style.setProperty("--s", (0.88 + ((i * 3) % 3) * 0.07).toFixed(2));
+        sheep.style.setProperty("--bob-delay", "-" + ((i * 0.37) % 0.9).toFixed(2) + "s");
+        sheep.style.setProperty("--walk-delay", "-" + ((i * 0.29) % 0.9).toFixed(2) + "s");
+        row.el.appendChild(sheep);
+      }
+    }
+  });
+}
+
 /* ---------- Reveal on scroll ---------- */
 function initReveals() {
   const items = document.querySelectorAll(".reveal");
@@ -333,6 +389,8 @@ function initSmoothScroll() {
 }
 
 buildFaq();
+initHeroFlock();
+initHeroMeadow();
 initFoundersMarquee();
 initReveals();
 initSmoothScroll();

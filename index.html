@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -35,32 +35,62 @@
 
     <!-- ============ 01. HERO ============ -->
     <section class="section hero" id="hero" data-header="light">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-head reveal">
-            <p class="eyebrow">A COMUNIDADE DAS OVELHAS NEGRAS</p>
-            <h1 class="hero-title">
-              Roupa qualquer<br />um tem.<br />
-              <em>Presença não.</em>
-            </h1>
+
+      <!-- rebanho de ovelhas brancas (clones gerados via js/main.js) -->
+      <div class="hero-flock" id="hero-flock" aria-hidden="true"></div>
+
+      <!-- cena mobile: rebanho desfilando em dois planos, ovelha negra contra o fluxo -->
+      <div class="hero-meadow" aria-hidden="true">
+        <div class="meadow-row meadow-back"><div class="meadow-track" id="meadow-back"></div></div>
+        <div class="meadow-row meadow-front"><div class="meadow-track" id="meadow-front"></div></div>
+        <p class="meadow-caption">O REBANHO SEGUE ANDANDO · <em>vira a ovelha negra</em></p>
+      </div>
+
+      <!-- trilha pontilhada: o caminho da ovelha negra pra fora do rebanho -->
+      <svg class="hero-trail" viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M592 16 C 480 140, 430 222, 305 236 C 210 246, 100 246, 12 234" vector-effect="non-scaling-stroke" />
+      </svg>
+
+      <!-- a ovelha negra saindo do rebanho -->
+      <div class="hero-blacksheep" aria-hidden="true">
+        <svg class="sheep sheep-black sheep-walk" viewBox="0 0 150 115" focusable="false">
+          <ellipse class="sheep-shadow" cx="80" cy="109" rx="50" ry="4.5" />
+          <path class="sheep-leg leg-a" d="M56 74 L50 104" />
+          <path class="sheep-leg leg-b" d="M68 76 L66 105" />
+          <path class="sheep-leg leg-b" d="M100 76 L97 105" />
+          <path class="sheep-leg leg-a" d="M112 74 L117 104" />
+          <g class="sheep-bob">
+            <g class="sheep-wool-line">
+              <circle cx="60" cy="50" r="24"/><circle cx="84" cy="44" r="22"/><circle cx="106" cy="52" r="19"/><circle cx="70" cy="64" r="21"/><circle cx="93" cy="66" r="18"/><circle cx="118" cy="62" r="14"/><circle cx="48" cy="62" r="17"/>
+            </g>
+            <g class="sheep-wool">
+              <circle cx="60" cy="50" r="24"/><circle cx="84" cy="44" r="22"/><circle cx="106" cy="52" r="19"/><circle cx="70" cy="64" r="21"/><circle cx="93" cy="66" r="18"/><circle cx="118" cy="62" r="14"/><circle cx="48" cy="62" r="17"/>
+            </g>
+            <ellipse class="sheep-ear" cx="19" cy="47" rx="10" ry="4.5" transform="rotate(-26 19 47)" />
+            <ellipse class="sheep-ear" cx="46" cy="40" rx="9" ry="4.5" transform="rotate(14 46 40)" />
+            <ellipse class="sheep-face" cx="32" cy="53" rx="12.5" ry="16.5" transform="rotate(-12 32 53)" />
+            <circle class="sheep-tuft" cx="41" cy="32" r="10" />
+            <circle class="sheep-eye" cx="26" cy="50" r="2.4" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-center reveal">
+          <p class="eyebrow eyebrow-hero">
+            <img class="eyebrow-mark" src="img/logo/simbolo.png" alt="" width="418" height="573" />
+            A COMUNIDADE DAS OVELHAS NEGRAS
+          </p>
+          <h1 class="hero-title">
+            Roupa qualquer<br />um tem.<br />
+            <em>Presença não.</em>
+          </h1>
+          <p class="hero-sub">Você cansou de se vestir pra caber. Agora se veste pra ser lembrado.</p>
+          <p class="hero-micro">Sem fórmula pronta. Sem copiar influencer. Sem gastar em peça que apodrece no fundo do armário.</p>
+          <div class="hero-cta">
+            <a href="https://pay.cakto.com.br/3ephu46" class="btn btn-dark btn-lg" target="_blank" rel="noopener">QUERO TER PRESENÇA</a>
+            <a href="#recebe" class="link-quiet" data-scroll>ver tudo que você recebe ↓</a>
           </div>
-          <div class="hero-copy reveal">
-            <p class="hero-sub">Você cansou de se vestir pra caber. Agora se veste pra ser lembrado.</p>
-            <p class="hero-micro">Sem fórmula pronta. Sem copiar influencer. Sem gastar em peça que apodrece no fundo do armário.</p>
-            <div class="hero-cta">
-              <a href="https://pay.cakto.com.br/3ephu46" class="btn btn-dark btn-lg" target="_blank" rel="noopener">QUERO TER PRESENÇA</a>
-              <a href="#recebe" class="link-quiet" data-scroll>ver tudo que você recebe ↓</a>
-            </div>
-          </div>
-          <figure class="hero-photo hero-flock reveal">
-            <img
-              src="img/ovelha-negra.jpg"
-              alt="Uma ovelha negra se destacando no meio de um rebanho de ovelhas brancas"
-              width="736" height="1313"
-              fetchpriority="high"
-            />
-            <figcaption>O REBANHO · VIRA A OVELHA NEGRA</figcaption>
-          </figure>
         </div>
       </div>
     </section>
