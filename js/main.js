@@ -195,7 +195,7 @@ const FOUNDERS = [
     stats: "INSTAGRAM 10K · TIKTOK 5K",
     cred: "Criador de conteúdo de moda com pegada viral.",
     bio: "Ianoski se destaca pelo conteúdo viral. Tem sacada afiada nos vídeos, mistura humor e moda de um jeito que estoura a bolha e prende quem assiste. É criador recente, começou agora, mas a ascensão já veio rápida. A comunicação cômica e leve é a marca dele, e o que faz o vídeo rodar.",
-    photo: "fundadores/dudu-ianoski.jpg",
+    photo: "fundadores/dudu.jpg",
   },
 ];
 
