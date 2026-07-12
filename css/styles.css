@@ -2126,95 +2126,18 @@ h3 em,
 }
 
 /* ==========================================================================
-   MOBILE REDESIGN — menos é mais
+   MOBILE CLEANUP — menos texto, mais respiro
    ========================================================================== */
 @media (max-width: 768px) {
 
-  /* ==============================================
-     GLOBAL: respiro, tipografia, cadência
-     ============================================== */
+  /* ---------- Geral: reduz padding entre seções ---------- */
   :root {
-    --pad-section: clamp(48px, 8vw, 80px);
+    --pad-section: clamp(56px, 9vw, 96px);
   }
 
-  body {
-    font-size: 15px;
-  }
+  /* ---------- Prosa/parágrafos secundários: sumir ---------- */
 
-  /* titulos menores e mais impactantes */
-  .title-xl {
-    font-size: clamp(1.8rem, 7vw, 2.6rem);
-    margin-bottom: 20px;
-  }
-
-  .title-lg {
-    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
-    margin-bottom: 18px;
-  }
-
-  /* prose geral mais leve */
-  .prose {
-    font-size: 0.88rem;
-    line-height: 1.55;
-  }
-
-  .prose p + p {
-    margin-top: 0.6em;
-  }
-
-  /* sec-head mais compacto */
-  .sec-head {
-    padding-top: 18px;
-    margin-bottom: 22px;
-  }
-
-  /* CTAs mais espaçados do conteúdo acima */
-  .cta-row {
-    margin-top: 28px;
-  }
-
-  /* ==============================================
-     HERO: limpo, headline + CTA
-     ============================================== */
-  .hero-sub {
-    font-size: 1rem;
-    max-width: 32ch;
-  }
-
-  .hero-micro {
-    display: none;
-  }
-
-  /* ==============================================
-     02. A PROVA: só os números + punchline
-     ============================================== */
-
-  /* esconde tudo dentro dos study cards, exceto a headline e o punch */
-  .study-card > p:first-of-type,
-  .study-source,
-  .study-card .badge {
-    display: none;
-  }
-
-  .study-card {
-    padding: 18px 20px;
-  }
-
-  .study-card h3 {
-    font-size: 1.05rem;
-    margin-bottom: 6px;
-  }
-
-  .study-punch {
-    font-size: 0.85rem;
-  }
-
-  /* ==============================================
-     03. O DIAGNÓSTICO: headline + diag + quote
-     ============================================== */
-
-  /* esconde tudo pesado */
-  #dor .prose-cols,
+  /* Seção "O Diagnóstico" — esconde a lista de dores e a frase final */
   .pain-list,
   .list-label,
   .diff-line,
@@ -2222,169 +2145,93 @@ h3 em,
     display: none;
   }
 
-  /* DM cards: esconde totalmente no mobile */
-  .dm-grid {
-    display: none;
-  }
-
-  /* diag rows mais compactos */
-  .diag-row {
-    font-size: 1.1rem;
-    padding: 14px 0;
-  }
-
-  .turn-quote {
-    font-size: 1.3rem;
-    margin: 32px auto;
-  }
-
-  /* ==============================================
-     04. POSICIONAMENTO: headline + quote apenas
-     ============================================== */
+  /* Seção "O Posicionamento" — esconde o prose longo, deixa só headline + quote */
   #virada .prose {
     display: none;
   }
 
-  .impact-quote {
-    font-size: 1.3rem;
-    margin-top: 24px;
-  }
-
-  /* ==============================================
-     05. A FERRAMENTA: sem foto, texto curto
-     ============================================== */
-  .tools-photo {
-    display: none;
-  }
-
+  /* Seção "A Ferramenta" — esconde o 3º parágrafo (excesso) */
   .tools-layout .prose p:nth-child(3) {
     display: none;
   }
 
-  /* ==============================================
-     06. O QUE VOCÊ RECEBE: top 5, sem descrição
-     ============================================== */
+  /* Seção "O que você recebe" — esconde as descrições dos benefícios, deixa só o título */
   .benefit-row p {
     display: none;
   }
 
-  .benefit-row {
-    padding-block: 14px;
-  }
-
-  /* esconde benefícios 6-10 no mobile */
-  .benefit-row:nth-child(n+6) {
-    display: none;
-  }
-
-  .benefit-num {
-    font-size: 1rem;
-  }
-
-  /* ==============================================
-     07. O CURSO: sem QA list, sem módulos, sem desc
-     ============================================== */
-  .qa-list {
-    display: none;
-  }
-
-  .module-grid {
-    display: none;
-  }
-
-  .module-total {
-    display: none;
-  }
-
+  /* Seção curso — esconde módulos e parágrafo final longo */
   .course-position {
     display: none;
   }
 
-  .course-desc {
+  .module-card p {
     display: none;
   }
 
-  /* course showcase: empilhado, mais limpo */
-  .course-showcase {
-    margin-bottom: 24px;
-  }
-
-  .course-info .badge {
-    display: none;
-  }
-
-  /* ==============================================
-     08. ASSINATURA: headline + CTA, zero prose
-     ============================================== */
+  /* Seção "Uma Assinatura" — esconde prose longo */
   #assinatura .prose {
     display: none;
   }
 
-  /* ==============================================
-     09. FUNDADORES: sem intro, bio curta
-     ============================================== */
+  /* Seção fundadores — esconde a intro longa */
   .founders-intro {
     display: none;
   }
 
-  .founders-close {
+  /* Seção "A Comunidade" — esconde intro e descrições dos cards */
+  .community-intro {
     display: none;
   }
 
-  .fm-bio {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    font-size: 0.82rem;
-  }
-
-  .fm-cred {
+  .community-card p {
     display: none;
   }
 
-  /* ==============================================
-     10. INVESTIMENTO: só o price card
-     ============================================== */
-  .pricing-layout {
-    grid-template-columns: 1fr;
-  }
-
+  /* Seção "O Investimento" — esconde o prose com os 3 parágrafos */
   .pricing-copy .prose {
     display: none;
   }
 
-  .pricing-copy .title-lg {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
-
-  /* ==============================================
-     11. COMUNIDADE: esconde inteira no mobile
-     ============================================== */
-  #comunidade {
+  /* Seção final — esconde o segundo parágrafo do prose */
+  .section-final .prose p:nth-child(2) {
     display: none;
   }
 
-  /* ==============================================
-     12. FAQ: compactar
-     ============================================== */
-  #faq .title-lg {
-    margin-bottom: 12px;
-  }
-
-  /* ==============================================
-     13. FINAL: só headline + imagem + CTA
-     ============================================== */
-  .section-final .prose {
+  /* DM cards — esconde a segunda bubble (mais longa) */
+  .dm-bubble:nth-child(3) {
     display: none;
   }
 
-  .final-remate {
-    font-size: 1.1rem;
+  /* Study cards — esconde o parágrafo de contexto, mantém headline + punch */
+  .study-card > p:first-of-type {
+    display: none;
   }
 
-  .final-circle {
-    width: 160px;
-    height: 160px;
+  .study-source {
+    display: none;
+  }
+
+  /* ---------- Tipografia mobile mais compacta ---------- */
+  .prose {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .prose p + p {
+    margin-top: 0.7em;
+  }
+
+  /* FM bio mais compacta */
+  .fm-bio {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* benefit-row mais apertado sem o p */
+  .benefit-row {
+    padding-block: 16px;
   }
 }
