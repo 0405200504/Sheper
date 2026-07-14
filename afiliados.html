@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHEPER — Links de Afiliado dos Fundadores</title>
+  <meta name="description" content="Página interna: link de afiliado de cada fundador da Sheper." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="img/logo/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white: #ffffff;
+      --off: #f3f3f4;
+      --gray: #9896a1;
+      --mid-dark: #a8a8b0;
+      --gray-dark: #7c7c85;
+      --ink: #141416;
+      --black: #0a0a0b;
+      --black-soft: #161619;
+      --line-dark: rgba(255, 255, 255, 0.14);
+      --font-sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-serif: "Instrument Serif", Georgia, serif;
+      --font-headline: "Anton", "Impact", sans-serif;
+      --radius: 4px;
+      --radius-lg: 8px;
+      --gutter: clamp(20px, 4.5vw, 56px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--white);
+      background: var(--black);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    ::selection { background: var(--white); color: var(--black); }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    /* ---------- Header ---------- */
+    .page-header {
+      padding: clamp(48px, 8vw, 96px) 0 clamp(32px, 5vw, 56px);
+      border-bottom: 1px solid var(--line-dark);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: clamp(28px, 5vw, 48px);
+    }
+
+    .brand-mark { width: 22px; height: auto; filter: invert(1); }
+    .brand-word { height: 18px; width: auto; filter: invert(1); }
+
+    .sec-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: clamp(20px, 3vw, 32px);
+    }
+
+    .page-title {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(34px, 6.5vw, 64px);
+      line-height: 1.04;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    .page-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .page-sub {
+      margin-top: 16px;
+      max-width: 560px;
+      color: var(--mid-dark);
+      font-size: 15px;
+    }
+
+    /* ---------- Lista ---------- */
+    .aff-list {
+      list-style: none;
+      padding: clamp(28px, 5vw, 48px) 0 clamp(64px, 9vw, 120px);
+      display: grid;
+      gap: 12px;
+    }
+
+    .aff-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: clamp(14px, 2.5vw, 24px);
+      padding: clamp(14px, 2.5vw, 20px) clamp(14px, 2.5vw, 24px);
+      background: var(--black-soft);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-lg);
+      transition: border-color 0.2s ease;
+    }
+
+    .aff-card:hover { border-color: rgba(255, 255, 255, 0.3); }
+
+    .aff-photo {
+      width: clamp(52px, 8vw, 64px);
+      height: clamp(52px, 8vw, 64px);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--line-dark);
+      flex-shrink: 0;
+      background: var(--ink);
+    }
+
+    .aff-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1);
+      transition: filter 0.25s ease;
+    }
+
+    .aff-card:hover .aff-photo img { filter: grayscale(0); }
+
+    .aff-id { min-width: 0; }
+
+    .aff-name {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(17px, 2.6vw, 22px);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+
+    .aff-handle {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--gray-dark);
+      text-transform: uppercase;
+    }
+
+    .aff-link {
+      display: block;
+      margin-top: 6px;
+      font-size: 12.5px;
+      color: var(--mid-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .aff-link:hover { color: var(--white); text-decoration: underline; }
+
+    .aff-link-sub {
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--gray-dark);
+    }
+
+    .aff-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--line-dark);
+      background: transparent;
+      color: var(--white);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover { border-color: var(--white); }
+
+    .btn-solid {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+
+    .btn-solid:hover { background: var(--off); }
+
+    .btn.copied {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+
+    /* ---------- Pendente ---------- */
+    .aff-card.pending { opacity: 0.55; }
+
+    .aff-card.pending .aff-photo img { filter: grayscale(1); }
+
+    .tag-pending {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 4px 12px;
+      border: 1px dashed var(--line-dark);
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+    }
+
+    /* ---------- Footer ---------- */
+    .page-footer {
+      border-top: 1px solid var(--line-dark);
+      padding: 28px 0 48px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- Toast ---------- */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translate(-50%, 20px);
+      background: var(--white);
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 50;
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 640px) {
+      .aff-card {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+          "photo id"
+          "actions actions";
+      }
+      .aff-photo { grid-area: photo; }
+      .aff-id { grid-area: id; }
+      .aff-actions { grid-area: actions; }
+      .aff-actions .btn { flex: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="SHEPER — ir pra página principal">
+        <img class="brand-mark" src="img/logo/simbolo.png" alt="" width="418" height="573" />
+        <img class="brand-word" src="img/logo/wordmark.png" alt="SHEPER" width="1100" height="247" />
+      </a>
+      <div class="sec-head">
+        <span>PÁGINA INTERNA — FUNDADORES</span>
+        <span>LINKS DE AFILIADO</span>
+      </div>
+      <h1 class="page-title">Seu link. Sua comissão.<br /><em>Divulga o teu.</em></h1>
+      <p class="page-sub">Cada fundador tem seu link exclusivo (sheper.vercel.app/seunome). Quem entra por ele vê a página normal, mas toda compra credita a SUA comissão na Cakto. Copia o seu e usa em bio, stories e conteúdo.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <ul class="aff-list" id="aff-list">
+      <!-- cards renderizados via script abaixo -->
+    </ul>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <span>SHEPER® — A COMUNIDADE DAS OVELHAS NEGRAS</span>
+      <span>NÃO COMPARTILHAR FORA DO TIME</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status">LINK COPIADO ✓</div>
+
+  <script>
+    const AFFILIATES = [
+      { name: "Master",        handle: "@gabrielmaster_", photo: "fundadores/master.jpg",        slug: "master",     checkout: "https://pay.cakto.com.br/3ephu46?affiliate=s2BNgvoQ" },
+      { name: "Germano",       handle: "@eugermanoh",     photo: "fundadores/germano.jpg",       slug: "germano",    checkout: "" },
+      { name: "Petry",         handle: "@petry.mene",     photo: "fundadores/petry.jpg",         slug: "petry",      checkout: "https://pay.cakto.com.br/3ephu46?affiliate=Z3AjRQ6m" },
+      { name: "Vitin",         handle: "@vitinresende",   photo: "fundadores/vitin.jpg",         slug: "vitin",      checkout: "https://pay.cakto.com.br/3ephu46?affiliate=VWc4F8bY" },
+      { name: "Davi",          handle: "@davidnthegoat",  photo: "fundadores/davi.jpg",          slug: "davi",       checkout: "https://pay.cakto.com.br/3ephu46?affiliate=eKB7uQLR" },
+      { name: "Thalys",        handle: "@thalys.ronald",  photo: "fundadores/thalys.jpg",        slug: "thalys",     checkout: "https://pay.cakto.com.br/3ephu46?affiliate=k94RkVUE" },
+      { name: "Juck",          handle: "@juckfe",         photo: "fundadores/juckfe.jpg",        slug: "juckfe",     checkout: "https://pay.cakto.com.br/3ephu46?affiliate=rwe42qA4" },
+      { name: "Asaf",          handle: "@asaf.pj",        photo: "fundadores/asaf.jpg",          slug: "asaf",       checkout: "" },
+      { name: "Ianoski",       handle: "@ianoskki",       photo: "fundadores/dudu.jpg",          slug: "ianoski",    checkout: "https://pay.cakto.com.br/3ephu46?affiliate=5wvgdN7w" },
+      { name: "Pombo",         handle: "@evertonpombo",   photo: "fundadores/everton.jpg",       slug: "pombo",      checkout: "" },
+      { name: "Bruno Gomes",   handle: "@brnogomes",      photo: "fundadores/bruno gomes.jpg",   slug: "brunogomes", checkout: "" },
+      { name: "Nathan",        handle: "@_nathancabral",  photo: "fundadores/nathan cabral.jpg", slug: "nathan",     checkout: "https://pay.cakto.com.br/3ephu46?affiliate=ZLHnrTDY" },
+    ];
+    // Satiro e Juan Pablo não entram aqui: as vendas deles rodam pelo link principal
+    // https://sheper.vercel.app (sem código de afiliado).
+
+    const SITE = "https://sheper.vercel.app";
+
+    const list = document.getElementById("aff-list");
+    const toast = document.getElementById("toast");
+    let toastTimer;
+
+    AFFILIATES.forEach((f) => {
+      const li = document.createElement("li");
+      li.className = "aff-card" + (f.link ? "" : " pending");
+
+      const photo = document.createElement("span");
+      photo.className = "aff-photo";
+      const img = document.createElement("img");
+      img.src = f.photo;
+      img.alt = f.name;
+      img.loading = "lazy";
+      photo.appendChild(img);
+
+      const id = document.createElement("div");
+      id.className = "aff-id";
+      const name = document.createElement("h2");
+      name.className = "aff-name";
+      name.textContent = f.name;
+      const handle = document.createElement("span");
+      handle.className = "aff-handle";
+      handle.textContent = f.handle;
+      id.appendChild(name);
+      id.appendChild(handle);
+
+      const shareLink = SITE + "/" + f.slug;
+
+      if (f.checkout) {
+        const a = document.createElement("a");
+        a.className = "aff-link";
+        a.href = shareLink;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = shareLink.replace("https://", "");
+        id.appendChild(a);
+
+        const sub = document.createElement("a");
+        sub.className = "aff-link aff-link-sub";
+        sub.href = f.checkout;
+        sub.target = "_blank";
+        sub.rel = "noopener";
+        sub.textContent = "checkout direto: " + f.checkout.replace("https://", "");
+        id.appendChild(sub);
+      } else {
+        const tag = document.createElement("span");
+        tag.className = "tag-pending";
+        tag.textContent = "Link pendente";
+        id.appendChild(tag);
+      }
+
+      const actions = document.createElement("div");
+      actions.className = "aff-actions";
+
+      if (f.checkout) {
+        const copyBtn = document.createElement("button");
+        copyBtn.className = "btn btn-solid";
+        copyBtn.type = "button";
+        copyBtn.textContent = "Copiar link";
+        copyBtn.addEventListener("click", () => copyLink(shareLink, copyBtn));
+
+        const openBtn = document.createElement("a");
+        openBtn.className = "btn";
+        openBtn.href = shareLink;
+        openBtn.target = "_blank";
+        openBtn.rel = "noopener";
+        openBtn.textContent = "Abrir";
+
+        actions.appendChild(copyBtn);
+        actions.appendChild(openBtn);
+      }
+
+      li.appendChild(photo);
+      li.appendChild(id);
+      li.appendChild(actions);
+      list.appendChild(li);
+    });
+
+    function copyLink(text, btn) {
+      const done = () => {
+        btn.classList.add("copied");
+        btn.textContent = "Copiado ✓";
+        showToast();
+        setTimeout(() => {
+          btn.classList.remove("copied");
+          btn.textContent = "Copiar link";
+        }, 1800);
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+      } else {
+        fallbackCopy(text, done);
+      }
+    }
+
+    function fallbackCopy(text, done) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+
+    function showToast() {
+      clearTimeout(toastTimer);
+      toast.classList.add("show");
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 1600);
+    }
+  </script>
+</body>
+</html>

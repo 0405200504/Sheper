@@ -388,7 +388,34 @@ function initSmoothScroll() {
   });
 }
 
+/* ---------- Links de afiliado por subpágina ----------
+   Cada fundador divulga sheper.vercel.app/<slug> (rewrite p/ index.html no
+   vercel.json). Aqui detectamos o slug e reescrevemos todos os CTAs de compra
+   pro checkout com o código de afiliado dele. Slug sem código = página normal. */
+const AFFILIATE_CODES = {
+  master: "s2BNgvoQ",
+  petry: "Z3AjRQ6m",
+  vitin: "VWc4F8bY",
+  davi: "eKB7uQLR",
+  thalys: "k94RkVUE",
+  juckfe: "rwe42qA4",
+  ianoski: "5wvgdN7w",
+  nathan: "ZLHnrTDY",
+};
+
+function initAffiliateLinks() {
+  const slug = window.location.pathname.replace(/\/+$/, "").split("/").pop().toLowerCase();
+  const code = AFFILIATE_CODES[slug];
+  if (!code) return;
+  document.querySelectorAll('a[href^="https://pay.cakto.com.br/3ephu46"]').forEach((a) => {
+    const url = new URL(a.href);
+    url.searchParams.set("affiliate", code);
+    a.href = url.toString();
+  });
+}
+
 buildFaq();
+initAffiliateLinks();
 initHeroFlock();
 initHeroMeadow();
 initFoundersMarquee();

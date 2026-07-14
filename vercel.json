@@ -1,0 +1,18 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/master", "destination": "/index.html" },
+    { "source": "/germano", "destination": "/index.html" },
+    { "source": "/petry", "destination": "/index.html" },
+    { "source": "/vitin", "destination": "/index.html" },
+    { "source": "/davi", "destination": "/index.html" },
+    { "source": "/thalys", "destination": "/index.html" },
+    { "source": "/juckfe", "destination": "/index.html" },
+    { "source": "/asaf", "destination": "/index.html" },
+    { "source": "/ianoski", "destination": "/index.html" },
+    { "source": "/pombo", "destination": "/index.html" },
+    { "source": "/brunogomes", "destination": "/index.html" },
+    { "source": "/nathan", "destination": "/index.html" }
+  ]
+}
